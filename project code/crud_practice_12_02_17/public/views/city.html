@@ -1,0 +1,30 @@
+<div class="col-md-6 col-md-offset-3">
+<div>
+	<form class="form-inline">
+    <div class="form-group">
+      <label for="city">City Name:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="text" class="form-control" id="city" placeholder="Enter city " ng-model="cityName">
+    </div>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="submit" class="btn btn-success" ng-click="addCity()">Add</button>
+  </form>
+</div>
+<br>
+<div>
+	<table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>City Name</th>
+        <th>Action</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="c in cityList|orderBy:'cityName'">
+      	<td>{{c.cityName}}</td>
+      	<td><button type="button" class="btn btn-danger" ng-click="deleteCity(c)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
