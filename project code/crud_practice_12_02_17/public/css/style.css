@@ -1,0 +1,30 @@
+body { padding-top:30px; }
+
+*{
+	padding: 0;margin: 0;
+}
+
+#content1:{
+	float: left;
+	widt:50%;
+} 
+
+#content2:{
+	float: right;
+	widt:50%;
+} 
+
+/*.s1{
+    border:none;
+}
+
+.c1{
+	border:none;
+}*/
+#td{
+	/*border: none;
+	text-decoration: node;
+	*/
+	border: none;
+	border-color: transparent;
+}

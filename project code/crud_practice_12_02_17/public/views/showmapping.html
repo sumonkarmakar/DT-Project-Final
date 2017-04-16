@@ -1,0 +1,69 @@
+<div class="container">
+	 <form>
+		<label>Select City:</label>
+		<select class="form-control" id="sel1" ng-options="city.cityName for city in cityList" ng-model="selectedCity">
+      	</select>
+      	{{selectedCity}}
+      	<label>Theatre Name:</label>
+		<select class="form-control" id="sel1" ng-options="t.theatreName for t in theatreList|filter:{theatreCity:selectedCity.cityName}" ng-model="selectedTheatre">
+	    </select>
+      	<label>Movie Name:</label>
+		<select class="form-control" id="sel1" ng-options="m.Title for
+		 m in movieList" ng-model="selectedMovie">
+      	</select><br/>
+      	<!--From date-->
+      	<label>From Date</label>
+      	<input id="date" name="fromDate" placeholder="DD/MM/YY" type="text" ng-model="selectedMovie.Released">
+      	
+      	<!--To Date-->
+      	<label>To Date</label> 
+		<input type="date" id="date" name="toDate" placeholder="DD/MM/YY" 
+		type="text" ng-model="toDate"/>
+		<label>Slot Time:</label>
+		<select name="show" multiple="" ng-model="slot">
+		  <option value="9:00am-12:00pm">9:00am-12:00pm</option>
+		  <option value="12:00-1:00pm">12:00-1:00pm</option>
+		  <option value="1:00pm-3:00pm">1:00pm-3:00pm</option>
+		  <option value="3:00pm-6:00pm">3:00pm-6:00pm</option>
+		  <option value="6:00pm-9:00pm">6:00pm-9:00pm</option>
+		</select>
+      	<button type="button" class="btn btn-success" 
+	    ng-click="addShow()" clear="both">Add</button>&nbsp;&nbsp;
+	    <button type="button" class="btn btn-primary" 
+	    ng-click="deleteShow()" clear="both">Reset</button>
+	</form> 
+	
+
+  <!--View all mapped movies-->           
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>City Name</th>
+		<th>Theatre Name</th>
+		<th>Movie Name</th>
+		<th>From Date</th>
+		<th>To Date</th>
+		<th>Slot Time</th>
+
+		<!-- <button type="button" class="btn btn-primary">Delete</button> -->
+      </tr>
+    </thead>
+    <tbody>
+     <tr ng-repeat="s in showList">
+		<td>{{s.theater.theatreCity}}</td>
+		<td>{{s.theater.theatreName}}</td>
+	    <td>{{s.movie.Title}}</td> 
+	   	<td>{{s.fromDate}}</td>
+	   	<td>{{s.toDate}}</td>
+	   	<td>{{s.slot}}</td>
+	    <td>
+	     <button class="btn btn-danger" ng-click="deleteShow(s)">Delete</button>
+	      <!-- <button type="button" class="btn btn-primary" 
+		    ng-click="deleteShow()">Reset</button> -->
+	    </td>
+	</tr>	
+	<!-- <button type="button" class="btn btn-primary">Delete</button> -->
+	</tbody>
+	
+  </table>
+</div>
